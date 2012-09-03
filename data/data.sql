@@ -1,0 +1,1 @@
+insert into `user_role` (`role_id`, `default`, `parent`) values('admin','0',NULL);

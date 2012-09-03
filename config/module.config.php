@@ -72,6 +72,19 @@ return array(
         ),
     ),
 
+    'bjyauthorize' => array(
+        /* Enable Route Guard
+         */
+        'guards' => array(
+            /* If this guard is specified here (i.e. it is enabled), it will block
+             * access to all routes unless they are specified here.
+             */
+            'BjyAuthorize\Guard\Route' => array(
+                array('route' => 'admin', 'roles' => array('admin')),
+            ),
+        ),
+    ),
+
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view'

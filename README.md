@@ -16,6 +16,24 @@ soon to come
 ## Usage
 soon to come
 
+## Enable Access restriction
+
+Restrict access to unauthorized Userd.
+
+### Solution
+
+1. Install BjyAuthorize and enable in you application.config.php
+2. Import data/data.sql into your database.
+3. Create a user with ZfcUser and set the user_id and role_id in the database
+    (e.g. user_d = 1, role_id = admin)
+
+### How to override the default admin role.
+
+1. Create Role in the database.
+2. Copy the zfcadmin.global.php into your global config path
+3. Enable the key 'bjyauthorize' and change admin to your custom user role.
+
+
 ## How To override Admin Layout
 
 Override the built in admin layout with your custom layout

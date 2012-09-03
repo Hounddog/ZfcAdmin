@@ -29,8 +29,29 @@ $settings = array(
     //'admin_layout_template' => 'layout/admin',
 
     /**
+     * Restrict access to Admin
+     * This is depending on the module BjyAuthorize/
+     * 
+     * If BjyAuthorize is enabled the access to this module is blocked.
+     *
+     * Enable this to override the default configuration. e.g user role
+     */
+    // 'bjyauthorize' => array(
+        /* Enable Route Guard
+         */
+    //    'guards' => array(
+            /* If this guard is specified here (i.e. it is enabled), it will block
+             * access to all routes unless they are specified here.
+             */
+    //        'BjyAuthorize\Guard\Route' => array(
+    //            array('route' => 'admin', 'roles' => array('admin')),
+    //        ),
+    //    ),
+    // ),
+    /**
      * End of ZfcAdmin configuration
      */
+    
 );
 
 /**
