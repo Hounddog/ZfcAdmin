@@ -44,6 +44,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'ZfcAdmin\Controller\AdminController' => 'ZfcAdmin\Controller\AdminController',
+            'ZfcAdminUser' => 'ZfcUser\Controller\UserController',
         ),
     ),
     'zfcadmin' => array(
@@ -68,6 +69,80 @@ return array(
                     ),
                 ),
                 'may_terminate' => true,
+                'child_routes' => array(
+                    'login' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/login',
+                            'defaults' => array(
+                                'controller' => 'ZfcAdminUser',
+                                'action'     => 'login',
+                            ),
+                        ),
+                    ),
+                    'authenticate' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/authenticate',
+                            'defaults' => array(
+                                'controller' => 'ZfcAdminUser',
+                                'action'     => 'authenticate',
+                            ),
+                        ),
+                    ),
+                    'logout' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/logout',
+                            'defaults' => array(
+                                'controller' => 'ZfcAdminUser',
+                                'action'     => 'logout',
+                            ),
+                        ),
+                    ),
+                    'register' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/register',
+                            'defaults' => array(
+                                'controller' => 'ZfcAdminUser',
+                                'action'     => 'register',
+                            ),
+                        ),
+                    ),
+                    'changepassword' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/change-password',
+                            'defaults' => array(
+                                'controller' => 'ZfcAdminUser',
+                                'action'     => 'changepassword',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'query' => array(
+                                'type' => 'Query',
+                            ),
+                        ),
+                    ),
+                    'changeemail' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/change-email',
+                            'defaults' => array(
+                                'controller' => 'ZfcAdminUser',
+                                'action' => 'changeemail',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'query' => array(
+                                'type' => 'Query',
+                            ),
+                        ),
+                    ),
+                ),
             ),
         ),
     ),
@@ -80,7 +155,10 @@ return array(
              * access to all routes unless they are specified here.
              */
             'BjyAuthorize\Guard\Route' => array(
-                array('route' => 'admin', 'roles' => array('admin')),
+                array('route' => 'admin', 'roles' => array('guest')),
+                array('route' => 'admin/logout', 'roles' => array('user')),
+                array('route' => 'admin/login', 'roles' => array('guest')),
+                array('route' => 'admin/register', 'roles' => array('guest')),
             ),
         ),
     ),

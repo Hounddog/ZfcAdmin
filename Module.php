@@ -88,6 +88,9 @@ class Module implements
             'factories' => array(
                 'admin_navigation' => 'ZfcAdmin\Navigation\Service\AdminNavigationFactory',
             ),
+            'invokables' => array(
+                'ZfcAdmin\Service\Authorize' => 'ZfcAdmin\Service\Authorize',
+            )
         );
     }
 
@@ -115,5 +118,8 @@ class Module implements
             $controller = $e->getTarget();
             $controller->layout($layout);
         }, 100);
+
+        $service = $sm->get('ZfcAdmin\Service\Authorize');
+        $app->getEventManager()->attach('route', array($service, 'onRoute'), -1000);
     }
 }
