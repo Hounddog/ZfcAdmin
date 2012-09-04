@@ -1,6 +1,6 @@
 # ZfcAdmin Module for Zend Framework 2
 
-Version 0.0.1 Created by Jurian Sluiman
+Version 0.0.1 Created by [Jurian Sluiman](http://juriansluiman.nl/en/) and [Martin Shwalbe](https://github.com/Hounddog)
 
 ## Introduction
 
