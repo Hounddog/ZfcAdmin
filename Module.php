@@ -86,6 +86,11 @@ class Module implements
     {
         return array(
             'factories' => array(
+
+                'zfcadmin_module_options' => function ($sm) {
+                    $config = $sm->get('Config');
+                    return new Options\ModuleOptions(isset($config['zfcadmin']) ? $config['zfcadmin'] : array());
+                },
                 'admin_navigation' => 'ZfcAdmin\Navigation\Service\AdminNavigationFactory',
             ),
             'invokables' => array(

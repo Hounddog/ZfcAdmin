@@ -44,7 +44,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'ZfcAdmin\Controller\AdminController' => 'ZfcAdmin\Controller\AdminController',
-            'ZfcAdminUser' => 'ZfcUser\Controller\UserController',
+            'ZfcAdminUser' => 'ZfcAdmin\Controller\AdminUserController',
         ),
     ),
     'zfcadmin' => array(
@@ -155,8 +155,8 @@ return array(
              * access to all routes unless they are specified here.
              */
             'BjyAuthorize\Guard\Route' => array(
-                array('route' => 'admin', 'roles' => array('guest')),
-                array('route' => 'admin/logout', 'roles' => array('user')),
+                array('route' => 'admin', 'roles' => array('guest', 'admin')),
+                array('route' => 'admin/logout', 'roles' => array('admin')),
                 array('route' => 'admin/login', 'roles' => array('guest')),
                 array('route' => 'admin/register', 'roles' => array('guest')),
             ),
@@ -165,7 +165,7 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            __DIR__ . '/../view'
+            __DIR__ . '/../view',
         ),
     ),
 );

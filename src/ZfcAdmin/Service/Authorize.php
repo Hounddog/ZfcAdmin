@@ -21,11 +21,7 @@ class Authorize implements ServiceManagerAwareInterface
             return;
         }
 
-        $allowedRoutes = array(
-            'admin/login',
-        );
-
-        if (in_array($routeName, $allowedRoutes)) {
+        if ($routeName =='admin/login') {
             return;
         }
 
