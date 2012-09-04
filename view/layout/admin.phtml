@@ -31,6 +31,7 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
+          <?php if($this->userAuthentication()) { ?>
           <div class="nav-collapse">
             <?php echo $this->navigation('admin_navigation')
                             ->menu()
@@ -38,6 +39,7 @@
                             ->setMaxDepth(0)
                             ->setRenderInvisible(false)?>
           </div><!--/.nav-collapse -->
+          <?php } ?>
         </div>
       </div>
     </div>

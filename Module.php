@@ -45,7 +45,6 @@ use Zend\ModuleManager\Feature;
 use Zend\Loader;
 use Zend\EventManager\EventInterface;
 use Zend\Mvc\MvcEvent;
-
 /**
  * Module class for ZfcAdmin
  *
@@ -126,5 +125,14 @@ class Module implements
 
         $service = $sm->get('ZfcAdmin\Service\Authorize');
         $app->getEventManager()->attach('route', array($service, 'onRoute'), -1000);
+    }
+
+    public function getViewHelperConfig()
+    {
+        return array(
+            'invokables' => array(
+                'userAuthentication' => 'ZfcAdmin\View\Helper\UserAuthentication',
+            ),
+        );
     }
 }
