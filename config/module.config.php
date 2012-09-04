@@ -54,6 +54,10 @@ return array(
 
     'navigation' => array(
         'admin' => array(
+            'admin' => array(
+                'label' => 'Sign Out',
+                'route' => 'admin/logout',
+            ),
         ),
     ),
 
