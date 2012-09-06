@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
-          <?php if($this->userAuthentication()) { ?>
+          <?php if($this->zfcUserIdentity()) { ?>
           <div class="nav-collapse">
             <?php echo $this->navigation('admin_navigation')
                             ->menu()
